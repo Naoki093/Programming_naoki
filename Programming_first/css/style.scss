@@ -1,0 +1,484 @@
+@charset "utf-8";
+
+/*ヘッダー　ーーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+header {
+    .header_section {
+        height: 90px;
+        display: flex;
+        position: relative;
+        .header_section_box {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            width: 90%;
+            height: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .header_right {
+                @media screen and (max-width: 768px) {
+                    display: none;
+                }
+                a {
+                    text-decoration: none;
+                    padding-left: 20px;
+                    font-weight: bolder;
+                    color: black;
+                }
+            }
+        /*--ハンバガーメニュー（768px以下で表示）ーーーーーーーーーーーーーーーーーー*/
+            /* PCでは非表示にしておく */
+                .nav_toggle,
+                .nav {
+                    display: none;
+                }
+
+            /* スマホサイズで見た場合のスタイル */
+                @media screen and (max-width: 768px) {
+            /* ハンバーガーのマーク */
+                .nav_toggle {
+                    display: block;
+                    position: relative;
+                    width: 1.75rem;
+                    height: 1.5rem;
+                    margin-right: 10px;
+                    z-index: 2;
+                    i {
+                        display: block;
+                        width: 100%;
+                        height: 2px;
+                        background-color: #333;
+                        position: absolute;
+                        transition: transform 0.5s, opacity 0.5s;
+                    }
+                }
+                    .nav_toggle i:nth-child(1) {
+                        top: 0;
+                    }
+                    .nav_toggle i:nth-child(2) {
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                    }
+                    .nav_toggle i:nth-child(3) {
+                        bottom: 0;
+                    }
+
+            /* クリックされた後のハンバーガーのマーク */
+                .nav_toggle.show i:nth-child(1) {
+                    transform: translateY(10px) rotate(-45deg);
+                }
+                .nav_toggle.show i:nth-child(2) {
+                    opacity: 0;
+                }
+                .nav_toggle.show i:nth-child(3) {
+                    transform: translateY(-12px) rotate(45deg);
+                }
+
+            /* クリックで表示されるメニュー：クリックされる前 */
+                .nav {
+                    display: flex;
+                    position: fixed;
+                    align-items: center;
+                    justify-content: center;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity 0.5s, visibility 0.5s;
+                    background-color: #fff;
+                    z-index: 1;
+                    .nav_menu_li {
+                        margin-bottom: 30px;
+                    }
+                    .nav_menu_li a {
+                        color: #393939;
+                        font-weight: bold;
+                        font-size: large;
+                        text-decoration: none;
+                    }
+                }
+
+            /* クリックで表示されるメニュー：クリックされた後 */
+                .nav.show {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+
+
+
+/*トップブロック　ーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+    .top_block {
+        position: relative;
+        .top_block_back {
+            .top_block_back_img {
+                max-width: 100%;
+            }
+        }
+        .top_block_text {
+            position: absolute;
+            top: 20%;
+            left: 5%;
+        /* スマホサイズで見た場合のスタイル */
+        @media screen and (max-width: 768px) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 90%;
+            margin: 0 auto;
+        }
+            .top_block_text_logo {
+            display: inline-block;
+            }
+            .top_block_text_img {
+                display: inline-block;
+                @media screen and (max-width: 768px) {
+                width: 400px;
+                }
+            }
+            .top_block_text_description {
+                max-width: 600px;
+                padding-top: 30px;
+                color: rgb(254, 254, 254);
+            }
+        }
+    }
+
+/*カードリスト　ーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+    .card_list {
+        width: 85%;
+        margin: auto;
+        padding-top: 85px;
+        .card_list_title {
+            text-align: center;
+            .card_list_title_logo {
+            font-size: 30px;
+            font-weight: bold;
+            }
+            .card_list_title_logo_furigana {
+            padding-top: 10px;
+            }
+        }
+    /* カードリストBOXーーーーーーーーーーーーーーーーーーーーーーー*/
+        .card_list_box {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 50px;
+            /* スマホサイズで見た場合のスタイル */
+            @media screen and (max-width: 768px) {
+                display: block;
+            }
+            .card_list_box_item {
+                border: 1px solid;
+                border-radius: 10px;
+                padding: 20px;
+                width: 25%;
+                @media screen and (max-width: 768px) {
+                width: 90%;
+                margin-top: 10px;
+                }
+                .card_list_box_img {
+                    text-align: center;
+                }
+                .card_list_box_item_description {
+                    .card_list_box_item_title {
+                        text-align: center;
+                        img {
+                        padding-top: 15px;
+                        }
+                    }
+                    .card_list_box_item_text {
+                    text-align: center;
+                    padding-top: 15px;
+                    font-size: larger;
+                    }
+                }
+            }
+        }
+    }
+
+/*ニュースリスト　ーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+    .news {
+        width: 85%;
+        margin: auto;
+        padding-top: 85px;
+        .news_list_title {
+            text-align: center;
+            .news_list_title_logo {
+            font-weight: bold;
+            font-size: 30px;
+            }
+            .news_list_title_logo_furigana {
+            padding-top: 10px;
+            }
+        }
+        .news_list {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 50px;
+        @media screen and (max-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+        }
+            .news_list_img {
+            width: 20%;
+            @media screen and (max-width: 768px) {
+            width: 47%;
+            margin-top: 20px;
+            }
+                .news_list_img_link {
+                    text-decoration: none;
+                    .news_list_img_box {
+                    border: 1px solid;
+                    color: black;
+                        img {
+                        width: 100%;
+                        }
+                    }
+                    .news_infomation {
+                        .news_date {
+                        color: darkgrey;
+                        padding-top: 10px;
+                        }
+                        .news_title{
+                        color: #000;
+                        margin-top: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+/*Q&A 質問と答え　ーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+    .QandA {
+        width: 85%;
+        margin: auto;
+        padding-top: 85px;
+        .QandA_title {
+        text-align: center;
+            .QandA_title_logo {
+            font-weight: bold;
+            font-size: 30px;
+            }
+            .QandA_title_logo_furigana {
+            padding-top: 10px;
+            }
+        }
+        .question_list {
+            margin-top: 50px;
+            .displayNone {
+                display: none;
+                }
+                .accordion li {
+                border-bottom: 1px solid #ccc;
+                padding: 10px;
+                }
+                .accordion a {
+                display: block;
+                }
+                .contentWrap {
+                margin: 30px;
+                font-weight: bold;
+                }
+                .switch {
+                cursor:pointer;
+                font-weight: bold;
+                padding:20px 40px 20px 10px;
+                font-size: 18px;
+                background: #eee;
+                border-bottom: 1px solid #ccc;
+                position: relative;
+                }
+                .switch:after {
+                    content: ">";
+                    position: absolute;
+                    right: 10px;
+                    top: -100%;
+                    bottom: -100%;
+                    margin: auto;
+                    font-size: 16px;
+                    height: 16px;
+                    -moz-transform: rotate(90deg);
+                    -ms-transform: rotate(90deg);
+                    -webkit-transform: rotate(90deg);
+                    transform: rotate(90deg);
+                    font-family: sans-serif;
+                    }
+                    .switch.open:after {
+                    content: "x";
+                    }
+        }
+    }
+
+/*コーディングデーターーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+    .cording_data {
+        width: 85%;
+        margin: auto;
+        padding-top: 85px;
+        padding-bottom: 55px;
+        .cording_data_title {
+            text-align: center;
+            .cording_data_title_logo {
+                font-weight: bold;
+                font-size: 30px;
+            }
+            .cording_data_title_logo_furigana {
+                padding: 10px 0 50px 0;
+            }
+        }
+    }
+
+/*CONTACT　お問い合わせーーーーーーーーーーーーーーーーーーーーーーーーー*/
+    .contact {
+        width: 85%;
+        margin: auto;
+        padding-top: 30px;
+        .contact_title {
+        text-align: center;
+            .contact_title_logo {
+            font-weight: bold;
+            font-size: 30px;
+            }
+            .contact_title_logo_furigana {
+            padding-top: 10px;
+            }
+        }
+
+        #contact{
+            padding:10px 0 10px;
+        }
+        .contact-text{
+            margin:45px auto;
+        }
+        .mail-message-area{
+            width:100%;
+            padding:0 15px;
+        }
+        .mail-message{
+            width: 100%;
+            background:rgba(255,255,255, 0.8) !important;
+            -webkit-transition: all 0.7s;
+            -moz-transition: all 0.7s;
+            transition: all 0.7s;
+            margin:0 auto;
+            border-radius: 0;
+        }
+        .not-visible-message{
+            height:0px;
+            opacity: 0;
+        }
+        .visible-message{
+            height:auto;
+            opacity: 1;
+            margin:25px auto 0;
+        }
+        /* Input Styles */
+        .form{
+            width: 100%;
+            padding: 15px;
+            background:#f8f8f8;
+            margin-bottom:25px;
+            color:#000000 !important;
+            font-size:13px;
+            -webkit-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            transition: all 0.4s;
+        }
+        .form:hover{
+            border:1px solid #8BC3A3;
+        }
+        .form:focus{
+            color: white;
+            outline: none;
+            border:1px solid #8BC3A3;
+        }
+        .textarea{
+            height: 200px;
+            max-height: 200px;
+            max-width: 100%;
+        }
+        /* Generic Button Styles */
+        .button{
+            padding:8px 12px;
+            background:#0A5175;
+            display: block;
+            width:120px;
+            margin:10px 0 0px 0;
+            border-radius:3px;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+            text-align:center;
+            font-size:0.8em;
+            box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+            -moz-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+            -webkit-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+        }
+        .button:hover{
+            background:#8BC3A3;
+            color:white;
+        }
+        /* Send Button Styles */
+        .form-btn{
+            width:180px;
+            display: block;
+            height: auto;
+            padding:15px;
+            color:#fff;
+            background:#5a5a5a;
+            border:none;
+            border-radius:3px;
+            outline: none;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+            margin:auto;
+            box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+            -moz-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+            -webkit-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+        }
+        .form-btn:hover{
+            background:#111;
+            color: white;
+            border:none;
+        }
+        .form-btn:active{
+            opacity: 0.9;
+        }
+        center{
+            margin-top:330px;
+        }
+        input {
+            position: relative;
+            z-index: 9999;
+        }
+        #page-top{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+        }
+        #page-top a{
+            background: #434343;
+            color: #fff;
+            line-height: 50px;
+            text-decoration: none;
+        }
+    }
+
+
+    .footer_text {
+        text-align: center;
+    }
